@@ -13,12 +13,11 @@ module.exports = {
         res.status(200).json(list);
       },
 
-    //  update:(req) 
+    get: (req, res) => {
+        res.status(200).json(list)
+    },
 
-  
-
-
-    delete:(req,res) => {
+    delete:( req,res ) => {
         console.log('This should delete')
         const { id }= req.params;
         list.forEach((e,i,a) => {
@@ -42,11 +41,4 @@ module.exports = {
     
 }
 
-
-  // readNews:( req, res )=> {
-    //     console.log('This was read')
-    //     axios.get(`http://api.nytimes.com/svc/topstories/v2/politics.json?api-key=${process.env.NYTIMES_KEY}`)
-    //     .then( resp => { 
-    //         res.status(200).send(resp.data.results)
-    //     }).catch(console.log)
-    // },         
+         

@@ -10,8 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/api/app/todo', ctr.create)
-// app.get('api/app/todo, ctr.get)
-// app.get('/api/news', ctr.readNews)
+app.get('/api/app/todo', ctr.get)
 app.delete('/api/delete/:id', ctr.delete)
 app.put('/api/completed/:id', ctr.updateComplete)
 

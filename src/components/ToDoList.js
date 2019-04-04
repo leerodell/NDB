@@ -16,7 +16,7 @@ class ToDoList extends Component {
 
     this.handleAddTask = this.handleAddTask.bind( this );
     this.handleDelete = this.handleDelete.bind(this);
-    // this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleGet = this.handleGet.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
   }
 
@@ -47,10 +47,13 @@ class ToDoList extends Component {
       }).catch(console.log)
     }
 
-    // handleUpdate(id, text){
-    //   axios.put(`/api/update/${id}`, {text})
-    //   .then(resp => {this.setState({posts: resp.data})})
-    // }
+    handleGet(){
+      console.log('helll000')
+      axios.get(`/api/app/todo`)
+      .then(resp => {
+        console.log('resp', resp)
+        this.setState({task: resp.data})})
+    }
 
 
     handleComplete(id){
@@ -78,6 +81,7 @@ class ToDoList extends Component {
            />
 
            <button className="addButton" onClick={ this.handleAddTask }>Add</button>
+           <button className="getButton" onClick={ this.handleGet }>Get</button>
            <DisplayList 
            task={this.state.task}
            handleDelete={this.handleDelete}
